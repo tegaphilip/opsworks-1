@@ -1,8 +1,11 @@
 Chef::Log.info("Node is ===>")
 Chef::Log.info(node)
 
-Chef::Log.info("Node Deploy is ===>")
-Chef::Log.info(node[:deploy])
+
+node[:deploy].each do |app_name, deploy|
+	Chef::Log.info("Node Deploy is ===>")
+	Chef::Log.info(deploy)
+	end
 
 
 case node[:platform]
