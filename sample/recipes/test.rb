@@ -1,3 +1,6 @@
+Chef::Log.info("Node is isis si")
+puts node
+Chef::Log.info(node)
 case node[:platform]
 when "ubuntu","debian"
   package "docker.io" do
