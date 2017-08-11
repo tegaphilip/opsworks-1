@@ -1,4 +1,11 @@
+apt_update 'Update the apt-cache' do
+	#frequency 86_400
+	#action :periodic
+	action :update
+end
+
 package value_for_platform_family(:rhel => 'httpd', :debian => 'apache2') do
+	Chef::Log.info("Installing apache2")
 	action :install
 end
 
