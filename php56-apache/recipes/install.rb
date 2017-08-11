@@ -1,3 +1,9 @@
+apt_repository 'php56-repo' do
+  uri 'ppa:ondrej/php'
+  components ['main', 'stable']
+	action :add
+end
+
 apt_update 'Update the apt-cache' do
 	#frequency 86_400
 	#action :periodic
@@ -28,3 +34,8 @@ packages.each { |package_name|
 		action 'install'
 	end
 }
+
+apt_repository 'php56-repo' do
+  uri 'ppa:ondrej/php'
+	action :remove
+end
