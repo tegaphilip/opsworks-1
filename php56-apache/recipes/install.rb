@@ -26,7 +26,8 @@ packages = [
 	'php5.6-zip',
 	'php5.6-dom',
 	'php5.6-gd',
-  'mysql-server-5.6' #needed for mysql client (that refused to install on its own)
+  'mysql-client'
+  #'mysql-server' #needed for mysql client
 ]
 
 packages.each { |package_name|
