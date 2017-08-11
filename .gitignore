@@ -20,5 +20,6 @@ _yardoc
 doc/
 /Gemfile.lock
 build
-.DS_Store
+/.DS_Store
 DS_Store
+photoapp/.DS_Store
