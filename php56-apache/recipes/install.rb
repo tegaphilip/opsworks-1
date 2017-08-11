@@ -37,6 +37,13 @@ packages.each { |package_name|
 	end
 }
 
+# Remove server tokens from api responses
+include_recipe 'php56-apache::disable_signatures'
+
+# Install composer
+include_recipe 'php56-apache::install_composer'
+
+# Remove the added apt-cache repository
 apt_repository 'php56-repo' do
   uri 'ppa:ondrej/php'
 	action :remove
