@@ -1,7 +1,4 @@
 user = node[:deploy][:user]
-
-Chef::Log::info("#{node[:deploy][:user]}")
-
 private_key_path = "/home/#{node[:deploy][:user]}/.ssh/id_rsa"
 
 bash 'generate ssh key pair' do
