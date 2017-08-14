@@ -1,4 +1,4 @@
-apt_repository 'php56-repo' do
+apt_repository 'php56_repo' do
   uri 'ppa:ondrej/php'
   components ['main', 'stable']
 	action :add
@@ -15,7 +15,7 @@ package value_for_platform_family(:rhel => 'httpd', :debian => 'apache2') do
 	action :install
 end
 
-node['php56-apache']['packages'].each { |package_name|
+node[:php56_apache][:packages].each { |package_name|
 	Chef::Log.info("Installing package : #{package_name}")
 	package "#{package_name}" do
 		action 'install'
@@ -23,16 +23,16 @@ node['php56-apache']['packages'].each { |package_name|
 }
 
 # Install mysql client for running cli tasks that uses mysql commands
-include_recipe 'php56-apache::mysql_client'
+include_recipe 'php56_apache::mysql_client'
 
 # Remove server tokens from api responses
-include_recipe 'php56-apache::disable_signatures'
+include_recipe 'php56_apache::disable_signatures'
 
 # Install composer
-include_recipe 'php56-apache::install_composer'
+include_recipe 'php56_apache::install_composer'
 
 # Remove the added apt-cache repository
-apt_repository 'php56-repo' do
+apt_repository 'php56_repo' do
   uri 'ppa:ondrej/php'
 	action :remove
 end

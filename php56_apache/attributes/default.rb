@@ -11,6 +11,6 @@ packages = [
 	'php5.6-gd'
 ]
 
-default['php56-apache']['packages'] = packages
+default[:php56_apache][:packages] = packages
 
-include_attribute "php56-apache::customize"
+include_attribute "php56_apache::customize"
