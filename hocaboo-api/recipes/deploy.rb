@@ -1,7 +1,7 @@
 deploy 'code' do
-  repo 'git@gitlab.com:hocaboo/api.git'
-  repository 'git@gitlab.com:hocaboo/api.git'
-  revision node[:branch_name]
+  repo 'https://github.com/tegaphilip/opsworks-1.git'
+  repository 'https://github.com/tegaphilip/opsworks-1.git'
+  # revision node[:branch_name]
   keep_releases 5
   migrate false
   ignore_failure false
