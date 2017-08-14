@@ -1,7 +1,7 @@
 deploy '/var/www/html/hocaboo-api' do
   # repository 'https://github.com/tegaphilip/fdc.git'
   repository 'git@gitlab.com:hocaboo/api.git'
-  revision 'master'
+  revision 'hocaboolive'
   keep_releases 5
   migrate false
   ignore_failure false
