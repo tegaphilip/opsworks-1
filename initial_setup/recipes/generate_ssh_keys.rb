@@ -1,8 +1,8 @@
-user = node[:deploy][:user]
+username = node[:deploy][:user]
 private_key_path = "/home/#{node[:deploy][:user]}/.ssh/id_rsa"
 
 bash 'generate ssh key pair' do
-  user user
+  user username
   code <<-EOH
     ssh-keygen -t rsa -q -f #{private_key_path} -P ""
     EOH
