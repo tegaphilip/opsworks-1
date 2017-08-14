@@ -18,7 +18,7 @@ deploy '/var/www/html/hocaboo-api' do
         action :create
       end
 
-      file '/var/www/html/hocaboo-api/shared/database.yml' do
+      file '/var/www/html/hocaboo-api/shared/config/database.yml' do
         mode '0755'
         action :create
       end
