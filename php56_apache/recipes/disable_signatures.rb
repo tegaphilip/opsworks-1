@@ -1,16 +1,16 @@
 apache2_dir = node[:apache2_dir]
 conf_file = apache2_dir + File::SEPARATOR  + 'apache2.conf'
 
-if File.exist?('/etc/apache2/apache2.conf')
-	if File.readlines(conf_file).grep(/ServerSignature/).any?
-		open(conf_file, 'a') do |f|
-	  	f.puts "ServerSignature Off\n"
-		end
+if File.exist?(conf_file)
+	execute 'Turn off Server Signature' do
+		command "echo 'ServerSignature Off' >> #{conf_file}"
+		action :run
+		not_if "grep '^ServerSignature Off$' #{conf_file}"
 	end
 
-	if File.readlines(conf_file).grep(/ServerTokens/).any?
-		open(conf_file, 'a') do |f|
-	  	f << "ServerTokens Prod\n"
-		end
+	execute 'Turn off Server Tokens' do
+		command "echo 'ServerTokens Prod' >> #{conf_file}"
+		action :run
+		not_if "grep '^ServerTokens Prod$' #{conf_file}"
 	end
 end
