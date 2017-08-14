@@ -15,6 +15,8 @@ package value_for_platform_family(:rhel => 'httpd', :debian => 'apache2') do
 	action :install
 end
 
+Chef::Log::info("Node is " + node)
+
 node[:php56_apache][:packages].each { |package_name|
 	Chef::Log.info("Installing package : #{package_name}")
 	package "#{package_name}" do
