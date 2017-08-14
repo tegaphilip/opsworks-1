@@ -1,7 +1,5 @@
-username = node[:deploy][:user]
-
 deploy 'App' do
-  user username
+  user node[:deploy][:user]
   repository 'git@gitlab.com:hocaboo/api.git'
   revision 'hocaboolive'
   keep_releases 5
