@@ -20,7 +20,6 @@ deploy '/var/www/html/hocaboo-api' do
 
       file '/var/www/html/hocaboo-api/shared/database.yml' do
         mode '0755'
-        owner 'web_admin'
         action :create
       end
     end
