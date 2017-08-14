@@ -29,6 +29,6 @@ packages = [
   #'mysql-server' #needed for mysql client
 ]
 
-default[:php56-apache][:packages] = packages
+default['php56-apache'][:packages] = packages
 
 include_attribute "php56-apache::customize"

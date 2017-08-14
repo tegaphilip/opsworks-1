@@ -30,7 +30,7 @@ end
 #   #'mysql-server' #needed for mysql client
 # ]
 
-node[:php56-apache][:packages].each { |package_name|
+node['php56-apache'][:packages].each { |package_name|
 	Chef::Log.info("Installing package : #{package_name}")
 	package "#{package_name}" do
 		action 'install'
