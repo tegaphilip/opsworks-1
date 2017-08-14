@@ -6,8 +6,11 @@ deploy '/var/www/html/hocaboo-api' do
   migrate false
   ignore_failure false
   #symlinks Hash.new
-  symlink_before_migrate { "dbdump/peanorgn_peandb.sql" => "dbdump/peanorgn_peandb.sql" }
-
+  # symlinks({})
+  # symlink_before_migrate({})
+  # symlink_before_migrate {"dbdump/peanorgn_peandb.sql" : "dbdump/peanorgn_peandb.sql" }
+  symlink_before_migrate ({})
+  # symlink_before_migrate symlink_before_migrate({})
   # Callback awesomeness:
   before_migrate do
     current_release = release_path
