@@ -25,6 +25,8 @@ message = {'text' => contents}
 command_string = "curl -X POST -H 'Content-type: application/json' --data '" + message.to_json
  + "' " + node[:hocaboo][:slack][:hooks_url]
 
+Chef::Log::info("Custom JSON")
+Chef::Log::info(node[:hocaboo].to_json)
 Chef::Log::info("Send to Slack")
 Chef::Log::info(send_to_slack.to_s)
 Chef::Log::info(command_string)
