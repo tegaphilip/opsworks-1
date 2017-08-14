@@ -5,8 +5,8 @@ bash 'extract_module' do
   not_if { ::File.exist?('~/.ssh/id_rsa.pub') }
 end
 
-file = File.open("~/.ssh/id_rsa.pub", "rb")
-contents = file.read
+# file = File.open("~/.ssh/id_rsa.pub", "rb")
+# contents = file.read
 
-Chef::Log::info("Public key is")
-Chef::Log::info(contents)
+# Chef::Log::info("Public key is")
+# Chef::Log::info(contents)
