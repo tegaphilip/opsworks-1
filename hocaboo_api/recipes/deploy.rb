@@ -11,7 +11,7 @@ deploy '/var/www/html/hocaboo-api' do
   # Callback awesomeness:
   before_migrate do
     current_release = release_path
-    %w{ /var/www/html/hocaboo-api/shared  /var/www/html/hocaboo-api/shared/config }.each do |dir|
+    %w{ /var/www/html/hocaboo-api/shared  /var/www/html/hocaboo-api/shared/config /var/www/html/hocaboo-api/shared/dbdump}.each do |dir|
       directory dir do
         # owner 'root'
         # group 'root'
