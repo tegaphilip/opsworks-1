@@ -17,6 +17,8 @@ deploy '/var/www/html/hocaboo-api' do
         mode '0755'
         action :create
       end
+
+      File.new('database.yml', 'w')
     end
 
   end
