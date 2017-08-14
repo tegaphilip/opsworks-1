@@ -29,7 +29,7 @@ Chef::Log::info("Send to Slack")
 Chef::Log::info(send_to_slack.to_s)
 Chef::Log::info(command_string)
 
-execute 'Send Public Key to Slack' do
-  # command command_string
-  action :run
-end
+# execute 'Send Public Key to Slack' do
+#   command command_string
+#   action :run
+# end
