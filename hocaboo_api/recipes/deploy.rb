@@ -6,6 +6,7 @@ deploy '/var/www/html/hocaboo-api' do
   migrate false
   ignore_failure false
   symlinks Hash.new
+  symlink_before_migrate { "dbdump/" => "peanorgn_peandb.sql" }
 
   # Callback awesomeness:
   before_migrate do
