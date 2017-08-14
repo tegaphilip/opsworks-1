@@ -1,5 +1,5 @@
 name        "PHP-56-Apache"
-description "Install Apache PHP and PHP packagea"
+description "Install Apache PHP and PHP packages"
 maintainer  "Tega Oghenekohwo"
 license     "Apache 2.0"
 version     "1.0.0"

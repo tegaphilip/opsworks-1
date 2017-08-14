@@ -1,8 +1,8 @@
-require 'json'
+user = node[:deploy][:user]
 
 apt_repository 'php56_repo' do
   uri 'ppa:ondrej/php'
-  components ['main', 'stable']
+  # components ['main', 'stable']
 	action :add
 end
 
@@ -16,9 +16,6 @@ package value_for_platform_family(:rhel => 'httpd', :debian => 'apache2') do
 	Chef::Log.info("Installing apache2")
 	action :install
 end
-
-Chef::Log::info("Node Class is " + node.class.to_s)
-Chef::Log::info("Node is " + node.to_json)
 
 packages = [
 	'php5.6',
