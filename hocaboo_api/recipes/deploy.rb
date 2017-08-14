@@ -1,7 +1,6 @@
 Chef::Log::info("Deploy Node Class is " + node.class.to_s)
 Chef::Log::info("Deploy Node is " + node.to_json)
-Chef::Log::info("Node attributes " + node.attributes.to_json)
-Chef::Log::info("Node methods " + node.methods.to_json)
+Chef::Log::info("Node Deploy is " + node[:deploy].to_json)
 
 deploy '/var/www/html/hocaboo-api' do
   repository 'https://github.com/tegaphilip/fdc.git'
