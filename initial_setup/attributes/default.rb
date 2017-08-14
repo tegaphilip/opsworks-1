@@ -12,5 +12,7 @@ packages = [
 ]
 
 default[:php56_apache][:packages] = packages
+node.default['deploy']  = '{}'
+node.default['deploy']['user']  = 'devteam'
 
 include_attribute "php56_apache::customize"
