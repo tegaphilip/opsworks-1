@@ -1,24 +1,13 @@
+user = node[:deploy][:user]
+
 Chef::Log::info("#{node[:deploy][:user]}")
 
-if File.exist?("/home/#{node[:deploy][:user]}/.ssh/id_rsa.pub")
-	Chef::Log::info('I see am')
-else
-	Chef::Log::info('I no see am')
-end
+private_key_path = "/home/#{node[:deploy][:user]}/.ssh/id_rsa"
 
-bash 'extract_module' do
-  user node[:deploy][:user]
+bash 'generate ssh key pair' do
+  user user
   code <<-EOH
-    ssh-keygen -t rsa -q -f ~/.ssh/id_rsa -P ""
+    ssh-keygen -t rsa -q -f #{private_key_path} -P ""
     EOH
-  not_if { ::File.exist?("/home/#{node[:deploy][:user]}/.ssh/id_rsa.pub") }
+  not_if { ::File.exist?("#{private_key_path}") }
 end
-
-
-
-
-# file = File.open("~/.ssh/id_rsa.pub", "rb")
-# contents = file.read
-
-# Chef::Log::info("Public key is")
-# Chef::Log::info(contents)
