@@ -1,23 +1,18 @@
+Chef::Log::info("Deploy Node Class is " + node.class.to_s)
+Chef::Log::info("Deploy Node is " + node.to_json)
+
 deploy '/var/www/html/hocaboo-api' do
-  #repo 'https://github.com/tegaphilip/opsworks-1.git'
   repository 'https://github.com/tegaphilip/fdc.git'
   revision 'master'
   keep_releases 5
   migrate false
   ignore_failure false
-  #symlinks Hash.new
-  # symlinks({})
-  # symlink_before_migrate({})
-  # symlink_before_migrate {"dbdump/peanorgn_peandb.sql" : "dbdump/peanorgn_peandb.sql" }
   symlink_before_migrate ({})
-  # symlink_before_migrate symlink_before_migrate({})
-  # Callback awesomeness:
+
   before_migrate do
-    current_release = release_path
-    %w{ /var/www/html/hocaboo-api/shared  /var/www/html/hocaboo-api/shared/config /var/www/html/hocaboo-api/shared/dbdump}.each do |dir|
+    Chef::Log::info("Current release path is " + release_path)
+    %w{ /var/www/html/hocaboo-api/shared  /var/www/html/hocaboo-api/shared/config }.each do |dir|
       directory dir do
-        # owner 'root'
-        # group 'root'
         mode '0755'
         action :create
       end
