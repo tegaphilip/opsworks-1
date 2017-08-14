@@ -1,6 +1,6 @@
 deploy 'code' do
-  repo 'https://github.com/tegaphilip/opsworks-1.git'
-  repository 'https://github.com/tegaphilip/opsworks-1.git'
+  #repo 'https://github.com/tegaphilip/opsworks-1.git'
+  repository 'https://github.com/tegaphilip/fdc.git'
   # revision node[:branch_name]
   keep_releases 5
   migrate false
