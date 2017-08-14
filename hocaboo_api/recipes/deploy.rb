@@ -5,8 +5,7 @@ deploy 'code' do
   keep_releases 5
   migrate false
   ignore_failure false
-  symlink_before_migrate {}
-  create_dirs_before_symlink   %w{tmp public config shared/config}
+  symlinks Hash.new
   # user 'ubuntu'
   deploy_to '/var/www/html/hocaboo-api'
   # ssh_wrapper '/tmp/private_code/wrap-ssh4git.sh'
