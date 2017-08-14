@@ -4,11 +4,10 @@
 #
 
 include_recipe 'deploy'
-# include_recipe "mod_php5_apache2"
-# include_recipe "mod_php5_apache2::php"
+include_recipe "mod_php5_apache2"
+include_recipe "mod_php5_apache2::php"
 
 node[:deploy].each do |application, deploy|
-  Chef::Log::info('Application type is ' + deploy[:application_type])
   if deploy[:application_type] != 'php'
     Chef::Log.debug("Skipping deploy::php application #{application} as it is not an PHP app")
     next
@@ -25,3 +24,4 @@ node[:deploy].each do |application, deploy|
     app application
   end
 end
+
