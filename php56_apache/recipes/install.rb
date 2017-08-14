@@ -17,7 +17,6 @@ package value_for_platform_family(:rhel => 'httpd', :debian => 'apache2') do
 	action :install
 end
 
-Chef::Log::info("Node Type is " + type(node))
 Chef::Log::info("Node Class is " + node.class)
 Chef::Log::info("Node is " + node.to_json)
 
